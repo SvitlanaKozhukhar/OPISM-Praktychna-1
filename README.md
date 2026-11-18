@@ -6,13 +6,13 @@
 
 | | |
 |---|---|
-| **Прізвище, ім'я** | |
-| **Група** | |
-| **Номер варіанта** | |
-| **Домен варіанта** | |
-| **Середовище виконання** | *(Linux / macOS / Windows / Killercoda)* |
-| **Версія curl** | *(вивід `curl --version`, перший рядок)* |
-| **Дата виконання** | |
+| **Прізвище, ім'я** |Кожухар Світлана|
+| **Група** |21|
+| **Номер варіанта** |6|
+| **Домен варіанта** |ietf.org|
+| **Середовище виконання** | Windows  |
+| **Версія curl** |curl 8.16.0 (Windows) libcurl/8.16.0 Schannel zlib/1.3.1 WinIDN|
+| **Дата виконання** |18.11.2026 |
 
 ---
 
@@ -20,16 +20,52 @@
 
 ### A.1. Запит із діагностичним виводом
 
-**Команда:**
+**Команда:** 
 
 ```
-curl -v https://ВАШ_ДОМЕН
+curl.exe -v https://ietf.org
 ```
 
 **Вивід:**
-
 ```
-(вставити повний вивід, включно з рядками *, > та <)
+* Host ietf.org:443 was resolved.
+* IPv6: (none)
+* IPv4: 104.16.44.99, 104.16.45.99
+*   Trying 104.16.44.99:443...
+* schannel: disabled automatic use of client certificate
+* ALPN: curl offers http/1.1
+* ALPN: server accepted http/1.1
+* Established connection to ietf.org (104.16.44.99 port 443) from 192.168.0.102 port 57586
+* using HTTP/1.x
+> GET / HTTP/1.1
+> Host: ietf.org
+> User-Agent: curl/8.16.0
+> Accept: */*
+>
+* Request completely sent off
+* schannel: remote party requests renegotiation
+* schannel: renegotiating SSL/TLS connection
+* schannel: SSL/TLS connection renegotiated
+< HTTP/1.1 301 Moved Permanently
+< Date: Wed, 18 Nov 2026 11:51:50 GMT
+< Content-Type: text/html; charset=UTF-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Location: https://www.ietf.org/
+< set-cookie: __cf_bm=.s_N_RMauvG3mlAKXf8kl6hlBjVqn8ujy3kXvynncMg-1795002710.0398312-1.0.1.1-MlNW9r2bh66jWpkDO.t00wafqNYUW0p14KUOb1VwkRGmYqUvK_5wMHlgd5Bq16d0UG6hDApNd_HgfFL.w8jJWYb2BIcdmBEsDyOzTXO7kbKsPpiMSVz8xuXfO40xcXu7; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=ietf.org; Expires=Wed, 18 Nov 2026 12:21:50 GMT
+< Server: cloudflare
+< CF-RAY: a5c6c3f9b8963bbd-WAW
+< alt-svc: h3=":443"; ma=86400
+<
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+* Connection #0 to host ietf.org:443 left intact
+
 ```
 
 ---
