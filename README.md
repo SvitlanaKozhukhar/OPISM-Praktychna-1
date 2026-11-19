@@ -244,39 +244,91 @@ curl.exe -v http://neverssl.com
 
 ### A.3. Запит до служби доменних імен
 
-*Windows: `Resolve-DnsName ВАШ_ДОМЕН`*
+*Windows: `Resolve-DnsName ietf.org | Format-List`*
 
 **Команда (перше виконання):**
 
 ```
-dig ВАШ_ДОМЕН
+Resolve-DnsName ietf.org | Format-List
 ```
 
 **Вивід:**
 
 ```
-(вставити повний вивід)
+Name       : ietf.org
+Type       : AAAA
+TTL        : 300
+DataLength : 16
+Section    : Answer
+IPAddress  : 2606:4700::6810:2c63
+
+Name       : ietf.org
+Type       : AAAA
+TTL        : 300
+DataLength : 16
+Section    : Answer
+IPAddress  : 2606:4700::6810:2d63
+
+Name       : ietf.org
+Type       : A
+TTL        : 300
+DataLength : 4
+Section    : Answer
+IPAddress  : 104.16.44.99
+
+Name       : ietf.org
+Type       : A
+TTL        : 300
+DataLength : 4
+Section    : Answer
+IPAddress  : 104.16.45.99
 ```
 
 **Команда (повторне виконання через 5–7 хвилин):**
 
 ```
-dig ВАШ_ДОМЕН
+Resolve-DnsName ietf.org | Format-List
 ```
 
 **Вивід:**
 
 ```
-(вставити повний вивід)
+Name       : ietf.org
+Type       : AAAA
+TTL        : 300
+DataLength : 16
+Section    : Answer
+IPAddress  : 2606:4700::6810:2c63
+
+Name       : ietf.org
+Type       : AAAA
+TTL        : 300
+DataLength : 16
+Section    : Answer
+IPAddress  : 2606:4700::6810:2d63
+
+Name       : ietf.org
+Type       : A
+TTL        : 300
+DataLength : 4
+Section    : Answer
+IPAddress  : 104.16.44.99
+
+Name       : ietf.org
+Type       : A
+TTL        : 300
+DataLength : 4
+Section    : Answer
+IPAddress  : 104.16.45.99
 ```
 
 **Зафіксовані значення:**
 
 | Параметр | Перше виконання | Повторне виконання |
 |---|---|---|
-| Час виконання (год:хв) | | |
-| IP-адреса | | |
-| Значення TTL | | |
+| Час виконання (год:хв) | 09:27 | |
+| IP-адреса | 104.16.44.99, 104.16.45.99, 2606:4700::6810:2c63, 2606:4700::6810:2d63 | 104.16.44.99, 104.16.45.99, 2606:4700::6810:2c63, 2606:4700::6810:2d63 |
+| Значення TTL | 300 | 300 |
 
 > Якщо друге значення TTL виявилося більшим за перше — це нормально: кеш резолвера встиг оновитися. Зафіксуйте як є.
 
